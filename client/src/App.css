@@ -1,0 +1,37 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  background: #f5f5f5;
+}
+
+.heading {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 31.25rem;
+  min-height: 18.75rem;
+  padding: 0.625rem;
+}
+
+.task_container {
+  margin: 0.625rem 0;
+  cursor: pointer;
+}
+
+.task {
+  flex-grow: 1;
+  margin-left: 0.625rem;
+}
+
+.line_through {
+  text-decoration: line-through;
+}
