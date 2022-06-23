@@ -7,6 +7,7 @@ module.exports = async () => {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true,
+      useFindAndModify: false
     };
     await mongoose.connect(config.DB, connectionParams);
     console.log("Connected to database.");

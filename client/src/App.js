@@ -5,10 +5,10 @@ import {
   updateTaskStatus,
   deleteTask,
 } from "./services/taskServices";
-import { Paper, TextField, Checkbox, Button } from "@material-ui/core";
+import { Paper, TextField, Checkbox, Button } from "@mui/material";
 import "./App.css";
 
-export default function Todo() {
+const Todo = () => {
   const [tasks, setTasks] = useState([]);
   const [taskInput, setTaskInput] = useState("");
 
@@ -24,11 +24,11 @@ export default function Todo() {
     fetch();
   }, []);
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     setTaskInput(e.currentTarget.value);
-  }
+  };
 
-  async function handleUpdate(taskId) {
+  const handleUpdate = async (taskId) => {
     try {
       let newStatus;
       const newTasks = [];
@@ -45,9 +45,9 @@ export default function Todo() {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
-  async function handleDelete(taskId) {
+  const handleDelete = async (taskId) => {
     try {
       await deleteTask(taskId);
       const newTasks = tasks.filter((task) => task._id !== taskId);
@@ -55,9 +55,9 @@ export default function Todo() {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { data } = await addTask(taskInput);
@@ -66,7 +66,7 @@ export default function Todo() {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <div className="App flex">
@@ -80,14 +80,14 @@ export default function Todo() {
           <TextField
             variant="outlined"
             size="small"
-            style={{ width: "75%" }}
+            sx={{ width: "75%" }}
             value={taskInput}
             required={true}
             onChange={handleChange}
             placeholder="Add new TO-DO"
           />
           <Button
-            style={{ height: "2.5rem", marginLeft: "0.625rem" }}
+            sx={{ height: "2.5rem", marginLeft: "0.625rem" }}
             color="primary"
             variant="outlined"
             type="submit"
@@ -115,4 +115,6 @@ export default function Todo() {
       </Paper>
     </div>
   );
-}
+};
+
+export default Todo;
